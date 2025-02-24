@@ -44,7 +44,8 @@ def test_large_numbers():
     arr = [1000000, 2000000, 3000000, 4000000]
     target = 5000000
     result = find_closest_pair_sum(arr, target)
-    assert result == (2000000, 3000000) or result == (3000000, 2000000)
+    # Verify that the sum is as close as possible to the target
+    assert abs(result[0] + result[1] - target) <= abs(1000000 + 4000000 - target)
 
 def test_all_same_numbers():
     """Test array with identical numbers"""
